@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float mSpeed;
     public float jumpForce;
-    float xInput;
-    float yInput;
+    private Vector2 movement;
+    private bool isGrounded;
 
     public bool hasthrown;
 
@@ -27,38 +27,31 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInput();
-        Movement();
+        float input = Input.GetAxis("Horizontal");
+        movement.x = input * mSpeed * Time.deltaTime;
+        transform.Translate(movement);
+
+        if (Input.GetButtonDown("Jump") && GetIsGrounded())
+        {
+            Jump();
+        }
 
         if (Input.GetKeyDown("space"))
         {
             hasthrown = true;
             spear.rb.linearVelocity = transform.right * spear.speed;
+            spear.transform.SetParent(null, true);
         }
+    }
+
+    private bool GetIsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, Vector2.down, 1.5f, LayerMask.GetMask("Ground"));
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
     
-    void GetInput()
-    {
-        xInput = Input.GetAxis("Horizontal");
-        yInput = Input.GetAxis("Vertical");
-    }
-
-    void Movement()
-    {
-        if (Mathf.Abs(xInput) > 0)
-        {
-            rb.velocity = new Vector2(xInput * mSpeed, rb.velocity.y);
-        }
-
-        if (Mathf.Abs(yInput) > 0 && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, yInput * jumpForce);
-
-        }
-    }
-
-    private bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
 }
