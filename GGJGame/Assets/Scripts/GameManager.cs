@@ -1,16 +1,44 @@
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject playerPrefab;
+
+    private GameObject player;
+
+    public static Action<GameObject> OnPlayerSpawned;
+
+
+    private void Awake()
+    {
+        player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        OnPlayerSpawned?.Invoke(player);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ResetScene()
     {
-        
+        Invoke("ResetSceneDelay", 2f);
+    }
+
+    private void ResetSceneDelay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDie += ResetScene;
+    }
+
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDie -= ResetScene;
     }
 }

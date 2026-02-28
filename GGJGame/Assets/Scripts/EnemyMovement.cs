@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private float halfHeight;
     private Vector2 movement;
     private bool isGrounded;
-    private float movementDelay;
+    //private float movementDelay;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,11 +28,11 @@ public class EnemyMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (movementDelay > 0f)
-        {
-            movementDelay -= Time.fixedDeltaTime;
-            return;
-        }
+        // if (movementDelay > 0f)
+        // {
+        //     movementDelay -= Time.fixedDeltaTime;
+        //     return;
+        // }
         movement.x = mSpeed * currentDirection;
         movement.y = rb.linearVelocity.y;
         rb.linearVelocity = movement;
@@ -56,14 +56,14 @@ public class EnemyMovement : MonoBehaviour
         isGrounded = false;
     }
 
-    public void knockbackEnemy(Vector2 knockbackForce, int direction, float delay)
-    {
-        movementDelay = delay;
-        knockbackForce.x *= direction;
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.AddForce(knockbackForce, ForceMode2D.Impulse);
-    }
+    // public void knockbackEnemy(Vector2 knockbackForce, int direction, float delay)
+    // {
+    //     movementDelay = delay;
+    //     knockbackForce.x *= direction;
+    //     rb.linearVelocity = Vector2.zero;
+    //     rb.angularVelocity = 0f;
+    //     rb.AddForce(knockbackForce, ForceMode2D.Impulse);
+    // }
 
     private void SetDirection()
     {
