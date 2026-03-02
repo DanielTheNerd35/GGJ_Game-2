@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 2738560413632666233}
   - component: {fileID: 2182586716132766255}
   - component: {fileID: 6820937449625672070}
+  - component: {fileID: 7275689812182924080}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -356,7 +357,7 @@ MonoBehaviour:
     m_Bits: 8
   spear: {fileID: 1055085685853073665}
   spearPosition: {fileID: 1628872676166737264}
-  mSpeed: 5.5
+  mSpeed: 6
   jumpForce: 10
   hasthrown: 0
 --- !u!114 &6820937449625672070
@@ -372,8 +373,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  currentHealth: 0
-  maxHealth: 0
+--- !u!95 &7275689812182924080
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899111751148391191}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8521989150630489622
 GameObject:
   m_ObjectHideFlags: 0

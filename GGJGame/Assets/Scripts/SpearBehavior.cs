@@ -13,14 +13,23 @@ public class SpearBehavior : MonoBehaviour
     private float travelTime = 3f;
     private bool hasLaunched;
     
-    void Awake()
+    private void OnEnable()
     {
-
+        GameManager.OnPlayerSpawned += SetupReferences;
     }
 
-    void Start()
+    private void OnDisable()
     {
-        // START AS CHILD
+        GameManager.OnPlayerSpawned -= SetupReferences;
+    }
+
+    private void SetupReferences(GameObject spawnedPlayer)
+    {
+        player = spawnedPlayer.GetComponent<PlayerMovement>();
+        playerPos = spawnedPlayer.transform;
+        cam = Camera.main;
+
+        // Start attached to player
         transform.SetParent(playerPos, false);
     }
 

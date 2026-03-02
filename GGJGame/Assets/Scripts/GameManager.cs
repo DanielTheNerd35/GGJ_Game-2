@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         player = Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }
 
@@ -40,5 +42,9 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDie -= ResetScene;
+    }
+
+    public void LoadScene(string sceneName) {
+        SceneManager.LoadScene(sceneName);
     }
 }
