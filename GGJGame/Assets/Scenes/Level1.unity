@@ -24805,6 +24805,10 @@ PrefabInstance:
       propertyPath: stayOnLedges
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3882682594937163780, guid: 8a0eb856c8353f94a9052a59911e2607, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8049578713361959653, guid: 8a0eb856c8353f94a9052a59911e2607, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -25033,6 +25037,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2953379235925796061, guid: 8a0eb856c8353f94a9052a59911e2607, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882682594937163780, guid: 8a0eb856c8353f94a9052a59911e2607, type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8049578713361959653, guid: 8a0eb856c8353f94a9052a59911e2607, type: 3}
