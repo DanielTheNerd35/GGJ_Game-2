@@ -357,6 +357,7 @@ MonoBehaviour:
     m_Bits: 8
   spear: {fileID: 1055085685853073665}
   spearPosition: {fileID: 1628872676166737264}
+  anim: {fileID: 7275689812182924080}
   mSpeed: 6
   jumpForce: 10
   hasthrown: 0

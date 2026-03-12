@@ -67,9 +67,19 @@ public class SpearBehavior : MonoBehaviour
     private void ReturnPlayer()
     {
         hasLaunched = false;
+        player.hasthrown = false;
         this.transform.SetParent(playerPos, false);
         transform.position = new Vector3(playerPos.position.x + 1, playerPos.position.y, -1);
         rb.linearVelocity = Vector2.zero;
+    }
+
+    public void TeleportPlayer()
+    {
+        if (!hasLaunched) return;
+
+        player.transform.position = transform.position;
+
+        ReturnPlayer();
     }
 
     private IEnumerator SpearTravel()
